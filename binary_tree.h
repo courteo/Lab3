@@ -57,6 +57,9 @@ public:
 
     std::string In_order_GetStr(element* start,int depth)
     {
+        if (depth <= 0)
+            throw IndexOutOfRange();
+
         if (start == nullptr)
             return std::string();
 
@@ -74,6 +77,9 @@ public:
 
     std::string Pre_order_GetStr(element* start,int depth)
     {
+        if (depth <= 0)
+            throw IndexOutOfRange();
+
         if (start == nullptr)
             return std::string();
 
@@ -334,9 +340,6 @@ public:
         if (temp == nullptr)
             return;
 
-        double k;
-
-        k = 8,31;
 
 
         temp->data = temp->data * i;

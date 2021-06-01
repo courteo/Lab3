@@ -7,4 +7,5 @@ CMakeFiles/lab3.dir/main.cpp.obj: ../binary_tree.h
 CMakeFiles/lab3.dir/main.cpp.obj: ../heap.h
 CMakeFiles/lab3.dir/main.cpp.obj: ../interface.h
 CMakeFiles/lab3.dir/main.cpp.obj: ../main.cpp
+CMakeFiles/lab3.dir/main.cpp.obj: ../tests.h
 

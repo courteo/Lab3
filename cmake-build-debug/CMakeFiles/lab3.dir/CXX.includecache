@@ -35,16 +35,28 @@ binary_tree.h
 C:/Users/aitao/CLionProjects/lab3/binary_tree.h
 complex
 C:/Users/aitao/CLionProjects/lab3/complex
+tests.h
+C:/Users/aitao/CLionProjects/lab3/tests.h
 
 C:/Users/aitao/CLionProjects/lab3/main.cpp
 iostream
 -
-binary_tree.h
-C:/Users/aitao/CLionProjects/lab3/binary_tree.h
 interface.h
 C:/Users/aitao/CLionProjects/lab3/interface.h
-math.h
-C:/Users/aitao/CLionProjects/lab3/math.h
+
+C:/Users/aitao/CLionProjects/lab3/tests.h
+ArraySequence.h
+C:/Users/aitao/CLionProjects/lab3/ArraySequence.h
+assert.h
+C:/Users/aitao/CLionProjects/lab3/assert.h
+complex
+C:/Users/aitao/CLionProjects/lab3/complex
+iostream
+C:/Users/aitao/CLionProjects/lab3/iostream
+random
+C:/Users/aitao/CLionProjects/lab3/random
+binary_tree.h
+C:/Users/aitao/CLionProjects/lab3/binary_tree.h
 heap.h
 C:/Users/aitao/CLionProjects/lab3/heap.h
 

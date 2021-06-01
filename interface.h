@@ -1036,18 +1036,11 @@ void testFunc() {
     int count = get_int();
     if (count <= 0)
         return;
-
+    test(100, 100);
     ArraySequenceTestComp();
     ArraySequenceTestDouble();
     ArraySequenceTestInt();
-    /*
-    BinaryTreeTestInt();
-    BinaryTreeTestComp();
-    BinaryTreeTestDouble();
-    BinaryHeapTestInt();
-    BinaryHeapTestDouble();
-    BinaryHeapTestComplex();
-    */
+
     std::cout << "Do you want to repeat test?\n"
                  "\t0 - no\n"
                  "\t1 - yes\n: ";
