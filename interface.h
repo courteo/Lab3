@@ -53,7 +53,7 @@ void printTypeArr(Binary_tree<T> BT);
 void readBinaryTree(int item, ArraySequence<Binary_tree<int>> *BTInt,
                     ArraySequence<Binary_tree<double>> *BTDouble, ArraySequence<Binary_tree<std::complex<int>>> *BTComp);
 template<class T>
-Binary_tree<T> readTypeBinaryTree(int count);
+Binary_tree<T>& readTypeBinaryTree(int count);
 
 void OperationWithBinaryTree(int item, ArraySequence<Binary_tree<int>> *BTInt,
                              ArraySequence<Binary_tree<double>> *BTDouble, ArraySequence<Binary_tree<std::complex<int>>> *BTComp);
@@ -321,7 +321,7 @@ void interface(){
                     testFunc();
                     break;
                 case 6:
-                    deleteBinaryTree(item2, &BTInt, &BTDouble,&BTComp);
+                    deleteBinaryHeap(item2, &BHInt, &BHDouble,&BHComp);
                     break;
             }
         }
@@ -342,7 +342,8 @@ int get_type() {
 
 
 void readBinaryTree(int item, ArraySequence<Binary_tree<int>> *BTInt,
-                    ArraySequence<Binary_tree<double>> *BTDouble, ArraySequence<Binary_tree<std::complex<int>>> *BTComp) {
+                              ArraySequence<Binary_tree<double>> *BTDouble,
+                              ArraySequence<Binary_tree<std::complex<int>>> *BTComp) {
     if (item == 0) return;
 
     std::cout << "Enter count of elements or -1 to exit: \n";
@@ -379,6 +380,18 @@ void readBinaryTree(int item, ArraySequence<Binary_tree<int>> *BTInt,
         }
 }
 
+template<class T>
+Binary_tree<T>& readTypeBinaryTree(int count) {
+    std::cout << "Enter the elements:\n";
+    auto *tree = new Binary_tree<T>;
+    for (int i = 0; i < count; i++) {
+        T item;
+        std::cin >> item;
+
+        tree->Insert(item);
+    }
+    return *tree;
+}
 
 void OperationWithBinaryTree(int item, ArraySequence<Binary_tree<int>> *BTInt,
                              ArraySequence<Binary_tree<double>> *BTDouble, ArraySequence<Binary_tree<std::complex<int>>> *BTComp){
@@ -657,18 +670,7 @@ void printTypeArr(Binary_tree<T> BT){
     */
 }
 
-template<class T>
-Binary_tree<T> readTypeBinaryTree(int count) {
-    std::cout << "Enter the elements:\n";
-    auto tree = Binary_tree<T>();
-    for (int i = 0; i < count; i++) {
-        T item;
-        std::cin >> item;
 
-        tree.Insert(item);
-    }
-    return tree;
-}
 
 void deleteBinaryTree(int item, ArraySequence<Binary_tree<int>> *BTInt,
                              ArraySequence<Binary_tree<double>> *BTDouble, ArraySequence<Binary_tree<std::complex<int>>> *BTComp){

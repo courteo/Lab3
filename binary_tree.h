@@ -27,33 +27,56 @@ public:
     }
 
 
-    Binary_tree(){
+     Binary_tree(){
         head = nullptr;
     }
 
 
-    Binary_tree(const Binary_tree<T> &other){
+     Binary_tree(const Binary_tree<T> &other){
         this->head = nullptr;
 
         Pre_order_copy(other.head);
         Pre_order(get_head(), 1);
     }
 
-
-    ~Binary_tree(){                                                                                                                                                         if(this < 0)
+    Binary_tree<T>& operator = (const Binary_tree<T> &other) {
         Delete_all(this->head);
+        this->head = nullptr;
+
+        Pre_order_copy(other.head);
+        Pre_order(get_head(), 1);
+
+        return *this;
     }
 
+
+    ~Binary_tree(){
+        Delete_all(this->head);
+       // head = nullptr;
+    }
+
+
     void Delete_all(element* start){
+        /*
+            if (start == nullptr)
+                return nullptr;
+            {
+                Delete_all(start->left);
+                Delete_all(start->right);
+                delete start;
+            }
+            return nullptr;
+    */
+
         auto *temp = start;
         if (temp == nullptr)
             return;
         Delete_all(temp->left);
         Delete_all(temp->right);
         Delete(temp->data);
-        head = nullptr;
-    }
 
+
+}
 
     std::string In_order_GetStr(element* start,int depth)
     {
@@ -142,9 +165,9 @@ public:
         }
         else {
             while (true) {
-                if (el == temp->data)
-                    break;
-                else if (el < temp->data) {
+                //if (el == temp->data)
+                   // break;
+                 if (el < temp->data) {
                     if (temp->left != nullptr) {
                         temp = temp->left;
                     }
@@ -181,12 +204,11 @@ public:
     void Delete(T el){
         auto *temp = search(el);
 
-
         if (temp == nullptr) return;
 
         if (temp->left == nullptr && temp->right == nullptr) {
             if (temp == head){
-                head->data = 0;
+                delete head;
                 head = nullptr;
                 return;
             }
@@ -269,22 +291,22 @@ public:
 
             delete temp1;
         }
-        Post_order_depth(get_head());
+//        Post_order_depth(get_head());
         Pre_order(get_head(), 1);
     }
 
 
-    Binary_tree<T> get_subtree(T el){                                                                                                                                                                                                                                                                // ИЛЬЯС ЛООХ
+    Binary_tree<T>& get_subtree(T el){
         element* temp = head;
-        auto res = Binary_tree<T>();
+        auto res = new Binary_tree<T>;
         if (temp == nullptr){
-            res.head = temp;
+            res->head = temp;
             return res;
         }
         while (true)
         {
             if (temp == nullptr){
-                res.head = temp;
+                res->head = temp;
                 return res;
             }
 
@@ -299,9 +321,9 @@ public:
                 break;
         }
         temp->parent = nullptr;
-        res.head = temp;
-        Pre_order(res.get_head(), 1);
-        return res;
+        res->head = temp;
+        Pre_order(res->get_head(), 1);
+        return *res;
     }
 
     bool find_subtree(T el){
@@ -339,6 +361,7 @@ public:
         auto *temp = start;
         if (temp == nullptr)
             return;
+
 
 
 
